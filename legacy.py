@@ -17,6 +17,7 @@ def load_key(key_file='key.key'):
 
 # Function to encrypt a file
 def encrypt_file(input_file, output_file, key):
+    print(f"Encrypting: {input_file}")
     # Check if the file is already encrypted
     if input_file.endswith('.enc'):
         raise ValueError(f"File '{input_file}' is already encrypted.")
