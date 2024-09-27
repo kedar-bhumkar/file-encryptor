@@ -143,7 +143,7 @@ if __name__ == '__main__':
 
     
     # Generate or load encryption key
-    key_file = 'key.key'
+    key_file = '../key.key'
     
     if not os.path.exists(key_file):
         key = generate_key(key_file)

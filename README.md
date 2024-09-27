@@ -33,7 +33,7 @@ pip install cryptography
 
 ### Examples
 
-
+  
 1. Encrypt an entire folder:
    ```
    python encrypt_folder.py --i /path/to/folder --o e
