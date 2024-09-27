@@ -33,24 +33,25 @@ pip install cryptography
 
 ### Examples
 
+
 1. Encrypt an entire folder:
    ```
-   python encrypt_folder.py --f /path/to/folder --o e
+   python encrypt_folder.py --i /path/to/folder --o e
    ```
 
 2. Decrypt an entire folder:
    ```
-   python encrypt_folder.py --f /path/to/folder --o d
+   python encrypt_folder.py --i /path/to/folder --o d
    ```
 
 3. Encrypt specific files in a folder (comma-separated):
    ```
-   python encrypt_folder.py --f /path/to/folder --o e --files file1.txt,file2.pdf,file3.docx
+   python encrypt_folder.py --i /path/to/folder --o e --f file1.txt,file2.pdf,file3.docx
    ```
 
 4. Decrypt specific files in a folder (space-separated, use quotes):
    ```
-   python encrypt_folder.py --f /path/to/folder --o d --files "file1.txt.enc file2.pdf.enc file3.docx.enc"
+   python encrypt_folder.py --i /path/to/folder --o d --f "file1.txt.enc file2.pdf.enc file3.docx.enc"
    ```
 
 ## Key Management
