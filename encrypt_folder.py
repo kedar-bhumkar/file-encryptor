@@ -66,7 +66,9 @@ def encrypt_folder(input_folder, key):
     
     for root, dirs, files in os.walk(input_folder):
         for file in files:
+            print(f"dirs: {dirs}")
             input_file = os.path.join(root, file)
+            print(f"input_file: {input_file}")
             if input_file.endswith('.enc') or input_file.endswith('.map'):
                 print(f"Skipping already encrypted file: {input_file}")
                 continue
@@ -74,7 +76,12 @@ def encrypt_folder(input_folder, key):
             output_file = os.path.join(root, output_file_name_only )
             try:    
                 encrypt_file(input_file, output_file, key)
-                mapping[output_file_name_only] = file
+                relative_path = os.path.relpath(input_file, input_folder)
+                print(f"relative_path: {relative_path}")
+                dir_path, _ = os.path.split(relative_path)
+                new_relative_path = os.path.join(dir_path, output_file_name_only)
+                print(f"new_relative_path: {new_relative_path}")
+                mapping[new_relative_path] = relative_path
                 os.remove(input_file)
                 print(f"Encrypted and deleted: {input_file}")
             except ValueError as e:
@@ -82,6 +89,7 @@ def encrypt_folder(input_folder, key):
     
     # Create and encrypt mapping file
     map_file = os.path.join(input_folder, f"{os.path.basename(input_folder)}.map")
+    print(f"input_folder: {input_folder}")
     print(f"Mapping file: {map_file}")
     print(f"Mapping: {mapping}")
     
